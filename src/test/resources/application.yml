@@ -1,6 +1,7 @@
 spring:
   kafka:
     consumer:
+      group-id: test-consumer
       auto-offset-reset: earliest
 app:
   kafka:

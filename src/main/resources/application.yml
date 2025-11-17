@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: kafka-template
+  kafka:
+    bootstrap-servers: localhost:19092
+    consumer:
+      group-id: my-cons-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        specific.avro.reader: false
+    listener:
+      ack-mode: record
+
+app:
+  kafka:
+    topic: my-topic

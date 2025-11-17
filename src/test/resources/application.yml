@@ -1,0 +1,7 @@
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+app:
+  kafka:
+    topic: my-topic

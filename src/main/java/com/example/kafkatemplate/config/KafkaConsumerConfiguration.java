@@ -26,7 +26,7 @@ public class KafkaConsumerConfiguration {
     private static final Logger log = LoggerFactory.getLogger(KafkaConsumerConfiguration.class);
 
     @Bean
-    public ConsumerFactory<String, String> consumerFactory(org.springframework.boot.autoconfigure.kafka.KafkaProperties properties) {
+    public ConsumerFactory<String, Object> consumerFactory(org.springframework.boot.autoconfigure.kafka.KafkaProperties properties) {
         Map<String, Object> consumerProps = new HashMap<>(properties.buildConsumerProperties());
         consumerProps.putIfAbsent(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         consumerProps.putIfAbsent(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -35,7 +35,7 @@ public class KafkaConsumerConfiguration {
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, Object> kafkaListenerContainerFactory(
-            ConsumerFactory<String, String> consumerFactory,
+            ConsumerFactory<String, Object> consumerFactory,
             RecordMessageConverter recordMessageConverter,
             DefaultErrorHandler errorHandler) {
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();

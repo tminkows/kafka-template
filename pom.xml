@@ -46,6 +46,15 @@
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>4.0.5</version>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -55,16 +64,13 @@
         </repository>
     </repositories>
 
+
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.15.4</version>
+                <groupId>org.jvnet.jaxb</groupId>
+                <artifactId>jaxb-maven-plugin</artifactId>
+                <version>4.0.8</version>
                 <executions>
                     <execution>
                         <id>generate-message-model</id>
@@ -82,5 +88,35 @@
                 </executions>
             </plugin>
         </plugins>
+        <!--        <plugins>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.springframework.boot</groupId>-->
+        <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.jvnet.jaxb2.maven2</groupId>-->
+        <!--                <artifactId>maven-jaxb2-plugin</artifactId>-->
+        <!--                <version>0.15.3</version>-->
+        <!--                <executions>-->
+        <!--                    <execution>-->
+        <!--                        <id>generate-message-model</id>-->
+        <!--                        <goals>-->
+        <!--                            <goal>generate</goal>-->
+        <!--                        </goals>-->
+        <!--                        <configuration>-->
+        <!--                            <args>-->
+        <!--                                <arg>-extension</arg>-->
+        <!--                                <arg>-Xjakarta</arg>-->
+        <!--                            </args>-->
+        <!--                            <schemaDirectory>${project.basedir}/src/main/resources/schema</schemaDirectory>-->
+        <!--                            <schemaIncludes>-->
+        <!--                                <include>message.xsd</include>-->
+        <!--                            </schemaIncludes>-->
+        <!--                            <generatePackage>com.example.kafkatemplate.schema</generatePackage>-->
+        <!--                        </configuration>-->
+        <!--                    </execution>-->
+        <!--                </executions>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
     </build>
 </project>

@@ -2,6 +2,7 @@ package com.example.kafkatemplate.support;
 
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.kafka.support.converter.RecordMessageConverter;
@@ -41,7 +42,7 @@ public class CustomerNotificationXmlConverter implements RecordMessageConverter 
     }
 
     @Override
-    public ConsumerRecord<?, ?> fromMessage(Message<?> message, String defaultTopic) {
+    public ProducerRecord<?, ?> fromMessage(Message<?> message, String defaultTopic) {
         throw new UnsupportedOperationException("XML serialization is not supported for outbound messages in this template");
     }
 }

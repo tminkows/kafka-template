@@ -66,7 +66,7 @@ public class KafkaConsumerConfiguration {
     @Bean
     public Jaxb2Marshaller customerNotificationMarshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setClassesToBeBound(CustomerNotification.class);
+        marshaller.setContextPath("com.example.kafkatemplate.schema");
         return marshaller;
     }
 

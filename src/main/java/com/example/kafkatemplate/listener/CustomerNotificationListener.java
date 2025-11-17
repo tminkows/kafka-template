@@ -3,6 +3,7 @@ package com.example.kafkatemplate.listener;
 import com.example.kafkatemplate.schema.CustomerNotification;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import jakarta.xml.bind.JAXBElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -22,7 +23,9 @@ public class CustomerNotificationListener {
     private final AtomicReference<CountDownLatch> latch = new AtomicReference<>(new CountDownLatch(1));
 
     @KafkaListener(topics = "${app.kafka.topic}")
-    public void handle(@Payload @Valid @NotNull CustomerNotification notification) {
+    public void handle(@Payload @Valid @NotNull JAXBElement<CustomerNotification> element) {
+        CustomerNotification notification = element.getValue();
+
         log.info("Processing notification {} for customer {}", notification.getId(), notification.getCustomerId());
         lastNotification.set(notification);
         latch.get().countDown();

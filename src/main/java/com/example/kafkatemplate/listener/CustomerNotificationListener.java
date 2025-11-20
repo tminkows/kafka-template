@@ -1,9 +1,9 @@
 package com.example.kafkatemplate.listener;
 
 import com.example.kafkatemplate.schema.CustomerNotification;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.xml.bind.JAXBElement;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.JAXBElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;

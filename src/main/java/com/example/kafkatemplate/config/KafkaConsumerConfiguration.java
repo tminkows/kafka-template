@@ -40,7 +40,7 @@ public class KafkaConsumerConfiguration {
             DefaultErrorHandler errorHandler) {
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
-        factory.setRecordMessageConverter(recordMessageConverter);
+        factory.setMessageConverter(recordMessageConverter);
         factory.setCommonErrorHandler(errorHandler);
         return factory;
     }
